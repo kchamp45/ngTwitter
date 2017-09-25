@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../post.model';
 import { Router } from '@angular/router';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [PostService]
 })
-export class HomeComponent {
-  constructor(private router: Router) {}
-  posts: Post [] = [
-    new Post("CNN Breaking News", "CNN", "5 living former US Presidents expand their hurricane relief effort to include Puerto Rico and US Virgin Islands.", "https://pbs.twimg.com/media/DKlVGXLVYAAnUya.jpg", "news", 1),
-    new Post("Halo Game", "Halo", "Ten years ago, the Master Chief inspired us to Believe.  Thank you for all the wonderful memories, Halo 3!", "https://pbs.twimg.com/media/DKlKudUXkAAO-ne.jpg", "entertainment", 2),
-    new Post("The Big Bang Theory", "ABC", "Be ready for the big night on #BigBangTheory, anywhere you are! Here's how to watch the premiere across devices.", "https://pbs.twimg.com/media/DKjB9eHVAAAGzwU.jpg", "entertainment", 3)
-  ];
+export class HomeComponent implements OnInit {
+  selectedPost = null;
+  posts: Post [];
+  constructor(private router: Router, private postService: PostService) {}
+
+  ngOnInit(){
+    this.posts = this.postService.getPosts();
+  }
 
   addPost(newPostFromChild: Post){
     this.posts.push(newPostFromChild);
@@ -22,4 +25,12 @@ export class HomeComponent {
   goToDetailPage(clickedPost: Post) {
     this.router.navigate(['posts', clickedPost.id]);
   };
+
+  editPost(clickedPost) {
+    this.selectedPost = clickedPost;
+  }
+
+  finishedEditing() {
+    this.selectedPost = null;
+  }
 }

@@ -11,6 +11,7 @@ import { TypePipe } from './type.pipe';
 import { HomeComponent } from './home/home.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
     HomeComponent,
     NewPostComponent,
     PostDetailComponent,
+    EditPostComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+<h1>Edit Post</h1>
+
+    <div *ngIf="childSelectedPost">
+       <label>title:</label>
+       <input [(ngModel)]="childSelectedPost.title">
+       <br>
+       <label>author:</label>
+       <input [(ngModel)]="childSelectedPost.author">
+       <br>
+       <label>description:</label>
+       <input [(ngModel)]="childSelectedPost.description">
+       <br>
+       <label>image link:</label>
+       <input [(ngModel)]="childSelectedPost.image">
+       <br>
+       <label>category:</label>
+       <input [(ngModel)]="childSelectedPost.type">
+       <br>
+       <button (click)="doneButtonClicked()">Done</button>
+      </div>
