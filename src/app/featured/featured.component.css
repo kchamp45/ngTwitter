@@ -1,0 +1,9 @@
+.col-md-3 {
+border: 2px solid black;
+color: purple;
+}
+
+img {
+  height: 250px;
+  width: 100%;
+}

@@ -4,15 +4,29 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { FeaturedComponent } from './featured/featured.component';
+import { SportsComponent } from './sports/sports.component';
+import { routing } from './app.routing';
+import { TypePipe } from './type.pipe';
+import { HomeComponent } from './home/home.component';
+import { NewPostComponent } from './new-post/new-post.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FeaturedComponent,
+    SportsComponent,
+    TypePipe,
+    HomeComponent,
+    NewPostComponent,
+    PostDetailComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,11 @@
+<h2>Posts</h2>
+
+<div *ngFor="let currentPost of posts" (click)="goToDetailPage(currentPost)" class="panel panel-default">
+  <div class="panel-body">
+    <h3>{{currentPost.title}}</h3>
+  </div>
+</div>
+
+<div class="container">
+  <app-new-post (newPostSender)="addPost($event)"></app-new-post>
+</div>
